@@ -1,40 +1,28 @@
-#3 HARENCIA
-class Cuenta:
-    pass
-    def _init_(self,numero, tipo): #defino constructor
-        #atributos
-        self.numero = numero
-        self.tipo =tipo
-        #defino comporatmiento
-    def descripcion(self):
-        return '{}: es una cuenta de tipo :{}'.format(self.numero,self.tipo)
+#4 POLIMORFISMO
+#Defino 2 clase de CAJERO ATM_RETITRO_ ATM_DEPOSITARIO_ ATM MIXTO PARA  PARTICAR PLOMORMISMOS
+#DEFINO CLASE ATM
+class ATM:
+    def _init_(self,cassete):
+        self.cassete =cassete
+    def tipoATM(self):
+        pass
+#clase hijas tipo de cajero
+class ATM_RETIRO(ATM):
+    def tipoATM(self):
+        print(f"ATM Solo para hacer retiros, cassete = {self.cassete}")
+#calse de ATM DEPOSITRAIO
+class ATM_DEPOSITRAIO(ATM):
+    def tipoATM(self):
+        print(f"ATM Solo para depósitos, cassete = {self.cassete}")
 
-#CREAR CLASE PARA HEREDAR
-class Ahorro(Cuenta):
-    def ahorro(self,tipoAhorro):
-        return '{}: es una cuenta de tipo :{}'.format(self.numero,tipoAhorro)
-class Flexible(Cuenta):
-    def flexible(self,tipoFlexible):
-        return '{}: es una cuenta de tipo :{}'.format(self.numero,tipoFlexible)
+#creo obejtos para instacnias clases
+new_ATM_RETIRO = ATM_RETIRO("10")
+#LLAMO AL METODO TIPO DE CAJERO y veo el tipo de cassete
+new_ATM_RETIRO.tipoATM()
 
-class Corriente(Cuenta):
-    def corriente(self,tipoCorriente):
-        return '{} es una cuenta de tipo {}'.format(self.numero,tipoCorriente)
-
-#VAMOS A CREAR OBJETOS PARA INSTANCIA LAS CLASES
-#OBJETO1 de la clase herencia Ahorro
-nueva_cuenta1 = Ahorro('349839930100','Cuenta_Ahorro')
-##llamo el metddo heredado descripcion
-print(nueva_cuenta1.descripcion())
-
-#OBJETO2 de la clase herencia flexible
-nueva_cuenta2 = Flexible('2202034519','Cuenta_FELXIBLE')
-##llamo el metddo heredado descripcion
-print(nueva_cuenta2.descripcion())
-
-#OBJETO2 de la clase herencia CORRIENTE
-nueva_cuenta3 = Corriente('2204410001','Cuenta_Corriente')
-##llamo el metddo heredado descripcion
-print(nueva_cuenta3.descripcion())
+#LLAMO AL METODO TIPO DE CAJERO y veo el tipo de cassete
+new_ATM_DEPOSITRAIO = ATM_DEPOSITRAIO("20")
+new_ATM_DEPOSITRAIO.tipoATM()
+#...
 
 
