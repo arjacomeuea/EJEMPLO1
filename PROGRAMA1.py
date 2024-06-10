@@ -1,29 +1,40 @@
-#2. ENCAPSULAMIENTO
-class Saldo:
-    def _init_(self):
-        self.Saldo_valor = 1256 #encapuslo el valor 120
-        self.__valor = 120 #encapuslo el valor 120
-        self.__limite =5000 #encapuslo el valor maximo de retiro
-    #metodo get para traer el metodo para la variable encapusalda
+#3 HARENCIA
+class Cuenta:
+    pass
+    def _init_(self,numero, tipo): #defino constructor
+        #atributos
+        self.numero = numero
+        self.tipo =tipo
+        #defino comporatmiento
+    def descripcion(self):
+        return '{}: es una cuenta de tipo :{}'.format(self.numero,self.tipo)
 
-    def get_cuenta(self):  #solo un metodo encapsulado que improme mensaje
-        print("El valor de cuenta es:")
-    def get_valor(self):
-        return self.__valor
+#CREAR CLASE PARA HEREDAR
+class Ahorro(Cuenta):
+    def ahorro(self,tipoAhorro):
+        return '{}: es una cuenta de tipo :{}'.format(self.numero,tipoAhorro)
+class Flexible(Cuenta):
+    def flexible(self,tipoFlexible):
+        return '{}: es una cuenta de tipo :{}'.format(self.numero,tipoFlexible)
 
-    #otro get para trader el metodo que obtenga la valrible encapusadla limiete
-    def get_limite(self):
-        return self.__limite
+class Corriente(Cuenta):
+    def corriente(self,tipoCorriente):
+        return '{} es una cuenta de tipo {}'.format(self.numero,tipoCorriente)
 
-#Instancio la clase  Saldo  al crear un objeto para que funicione
-CuentaSaldo = Saldo()
-#creo objeto para llamar al valor oculto
-#objeto.nombreClase_nombre atributo //llamo a los ocultos
-print(CuentaSaldo.get_cuenta()) #llamo al mensaje
-print(CuentaSaldo.get_valor()) #llamo el valor oculto del saldo
-print(CuentaSaldo.Saldo_valor)
-print("Cupo mAXIMO de retiro")
-#llamo el 2 valir protegido el limiete
-print(CuentaSaldo.get_limite())
+#VAMOS A CREAR OBJETOS PARA INSTANCIA LAS CLASES
+#OBJETO1 de la clase herencia Ahorro
+nueva_cuenta1 = Ahorro('349839930100','Cuenta_Ahorro')
+##llamo el metddo heredado descripcion
+print(nueva_cuenta1.descripcion())
+
+#OBJETO2 de la clase herencia flexible
+nueva_cuenta2 = Flexible('2202034519','Cuenta_FELXIBLE')
+##llamo el metddo heredado descripcion
+print(nueva_cuenta2.descripcion())
+
+#OBJETO2 de la clase herencia CORRIENTE
+nueva_cuenta3 = Corriente('2204410001','Cuenta_Corriente')
+##llamo el metddo heredado descripcion
+print(nueva_cuenta3.descripcion())
 
 
